@@ -1,0 +1,384 @@
+https://p0w3rsh3ll.wordpress.com/2013/11/26/get-expiry-date-of-certificate-files/
+
+python套件
+pip install allure -i http://88.8.63.50:8081/repository/pypi-group/simple --trusted-host 88.8.63.50
+
+docker安裝
+https://www.jenkins.io/zh/doc/book/installing/#%E5%AE%89%E8%A3%85docker
+
+安裝docker權限電聯單: 0009610900958
+okd建置電聯單: 1080110900750
+
+
+C:\inetpub\wwwroot\CRDNTACT02_MHT\config-PROD\txpconfig.json because it does not exist.
+
+
+
+Jenkins 建置命名規則 以apid為頭_加服務名稱
+
+Jenkins role 權限設定
+https://medium.com/@vishwanathdeedat/jenkins-role-based-access-358936f07af
+
+
+Jenkins安裝
+https://medium.com/@samtsai15/udemy%E7%AD%86%E8%A8%98-%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88-ci-%E5%B7%A5%E5%85%B7-jenkins-6-%E8%87%AA%E5%8B%95%E5%8C%96%E7%B7%A8%E8%AD%AF-maven-71bfde504ecb
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/406834/
+
+https://my.oschina.net/u/3222944/blog/3073214
+
+Jenkins備份
+https://www.itread01.com/content/1541937724.html
+
+
+1.
+Java_Home 環境變數
+https://medium.com/@samtsai15/udemy%E7%AD%86%E8%A8%98-%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88-ci-%E5%B7%A5%E5%85%B7-jenkins-2-%E5%AE%89%E8%A3%9D-7275eb389298
+設定在 .bash_profile
+
+2.
+安裝tomcat
+https://blog.csdn.net/GY325416/article/details/79327766
+最後開8080port
+sudo iptables -I INPUT -p tcp --dport 8080 -j ACCEPT    開放8080PORT的訪問權限
+
+sudo netstat -plnt 查看port使用狀況
+iptables -L -n    查看端口是否開放
+http://88.8.145.71:8080/
+
+3. 安裝jenkins.war
+https://my.oschina.net/u/3222944/blog/3073214
+用命令ps -ef|grep tomcat 查看tomcat
+目錄下有webapps上傳war
+進入http://88.8.145.71:8080/jenkins/pluginManager/
+
+pw:
+100fd658eb1b4c6f941d0566e3ac41fc
+PAT:
+NgoNSC6_AMBsrsyb14N8
+
+eric1111 --> ssbYthTX7b2Bzbmn9kG6
+
+JENKINS PLUG-IN   Plugin is missing: workflow-step-api 
+https://plugins.jenkins.io/workflow-step-api/
+
+要申請jenkins proxy載套件
+jenkins帳號管理 https://blog.darkthread.net/blog/jenkins-notes-2/
+jenkins結合git佈署 https://kknews.cc/zh-tw/code/4ke94eg.html
+jenkins - script
+sudo docker --version
+sudo docker run --name nginx-web -d --rm -p 8081:80 nginx:latest
+sudo docker ps
+
+
+
+4. 在 Ubuntu 安裝 Jenkins Agent 配置節點
+https://ithelp.ithome.com.tw/articles/10204199
+https://www.itread01.com/content/1550147763.html
+
+
+4.1 建置windows 節點
+選擇 啟動模式選擇launch agent by connecting it to master
+下載 agent.jar
+在win主機上執行java -jar agent.jar -jnlpUrl http://88.8.145.71:8080/jenkins/computer/python-agent/slave-agent.jnlp -secret bd50ffa4144ddddc9e103a9d4511c546c00f1ba3c6ec643580ddce7b973abf64 -workDir "C:\Jenkins"
+
+
+5.docker for window pull image 
+進入settings: proxies: http://NT87749:Cathay87749@pxwsg.cathaybk.intra.uwccb:80
+1. docker pull hello-world
+2. docker save -o image.tar hello-world
+3. 把 image.tar 搬進去
+4. docker load -i image.tar
+5.docker run hello-world
+
+
+
+5.docker離線安裝包
+https://download.docker.com/linux/static/stable/x86_64/
+
+sudo docker run --name nginx-web -p 8081:80 -v index.html -d goharbor/nginx-photon:v1.10.6
+
+離線安裝教學
+https://www.jb51.net/article/167103.htm
+
+
+6.docker-compose安裝
+下載 docker-compose-Linux-x86_64
+(1)mv docker-compose-Linux-x86_64 /usr/bin/docker-compose
+(2)chmod +x /usr/local/bin/docker-compose
+
+mkdir $HOME/tmp
+echo $TMPDIR
+export TMPDIR=$HOME/tmp
+docker-compose -version
+
+
+7.安裝harbor
+https://www.cnblogs.com/kevingrace/p/6547616.html
+https://ithelp.ithome.com.tw/articles/10249640
+https://medium.com/@xroms123/docker-%E5%BB%BA%E7%AB%8B-nginx-%E5%9F%BA%E7%A4%8E%E5%88%86%E4%BA%AB-68c0771457fb
+
+sudo systemctl start docker.service
+sudo docker images
+sudo docker run --name nginx-web -p 8081:80 -v index.html:/usr/share/nginx/html:ro -d goharbor/nginx-photon:v1.10.6
+sudo docker rm 
+docker ps -a
+docker start /nginx-web
+docker start containerID
+
+用途	指令	常用可選參數
+建立並執行容器	docker run	--name, -d, -rm, -p
+查看容器	docker ps	--all
+執行容器	docker start	
+停止容器	docker stop	
+刪除容器	docker rm	
+
+sudo netstat -plnt #查看port使用
+sudo docker run --name nginx-web -d --rm -p 8081:80 -v index.html:/usr/share/nginx/html:ro nginx:latest
+
+
+8.安裝gitlab
+
+離線安裝包: https://packages.gitlab.com/gitlab/gitlab-ce
+
+離線安裝教學 https://blog.csdn.net/lt326030434/article/details/101294798
+
+rpm -ivh gitlab-ce-12.1.11-ce.0.el6.x86_64.rpm
+
+修改配置文件gitlab.rb
+vim /etc/gitlab/gitlab.rb
+
+修改url
+# external_url 'localhost' 
+external_url 'http://yourip'
+unicorn['port'] = 8088
+初始化配置
+gitlab-ctl reconfigure
+
+docker 安裝 postgresql問題
+https://www.itread01.com/content/1543131679.html
+
+
+sudo iptables -I INPUT -p tcp --dport 5050 -j ACCEPT
+停止容器後會移除
+sudo docker run --name gitlab --detach -d --rm -p 5050:5050 gitlab/gitlab-ce:latest
+
+掛載volume:
+sudo docker run --name gitlab --detach -d  -p 8081:80 -v /home/almbsadm/mydata:/mydata gitlab/gitlab-ce:latest
+
+輸出container成檔案
+docker export nginx > nginx.tar
+cat nginx.tar | docker import - nginxbak
+輸出container成image
+docker commit -p 30b8f18f20b4 container-backup
+作為tar包備份
+docker save -o ~/container-backup.tar container-backup
+解析tar
+docker load -i ~/container-backup.tar
+run images
+docker run -d -p 80:80 container-backup
+
+重啟container
+sudo docker restart gitlab
+
+
+Jenkins 拉 -- Gitlab
+git  credentialsId: '3cda5118-a9da-436f-93df-6dcfb4bf7573', url: 'http://88.8.145.71:8081/eric1111/final_test.git', branch: 'master'
+
+
+
+node('jmeter-agent') {  
+   stage('Stage 1'){
+       echo 'Hello '
+   }
+   stage('check out'){
+       echo 'Hello World 2'
+       dir('project'){
+           sh 'rm -rf *'
+           git  credentialsId: '3cda5118-a9da-436f-93df-6dcfb4bf7573', url: 'http://88.8.145.71:8081/eric1111/jenkins_test_project.git', branch: 'master'
+       }
+       dir('/home/almbsadm/JMeter/apache-jmeter-4.0/bin'){
+           sh './jmeter -n -t /home/almbsadm/jenkins/workspace/gitlab-pipeline/project/API_Q001.jmx -l /home/almbsadm/apache-tomcat-8.5.16/webapps/jmeter_report/result.jtl -e -o /home/almbsadm/apache-tomcat-8.5.16/webapps/jmeter_report/report1'
+         
+       }
+       
+   }
+   stage('Show Report URL'){
+       echo 'http://88.8.145.100:8080/jmeter_report/report1/index.html'
+   }
+}
+
+
+
+
+sudo docker run --detach \
+  --hostname gitlab.example.com \
+  --publish 8929:8929 --publish 2289:22 \
+  --name gitlab \
+  --restart always \
+  --volume $GITLAB_HOME/config:/etc/gitlab \
+  --volume $GITLAB_HOME/logs:/var/log/gitlab \
+  --volume $GITLAB_HOME/data:/var/opt/gitlab \
+  gitlab/gitlab-ee:latest
+
+
+備份gitlab
+sudo docker exec -t gitlab gitlab-backup create
+
+1608543011_2020_12_21_13.6.1_gitlab_backup.tar
+
+
+
+安裝kubectl
+https://yumrepo.nautilus.optiputer.net/kubernetes/Packages/
+
+sudo yum localinstall kubectl.rpm
+
+安裝minikube
+1.https://storage.googleapis.com/minikube/releases/latest/minikube-latest.aarch64.rpm
+2.sudo rpm -ivh minikube-latest.aarch64.rpm
+ 要再安裝conntrack
+3. sudo yum install -y conntrack
+
+
+4. 下載minikube.iso
+
+http://www.liangxiaolei.fun/2019/11/28/k8s%E7%AC%94%E8%AE%B0-%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8minikube%E5%AE%89%E8%A3%85k8s/
+
+https://kknews.cc/code/pga95jp.html
+
+sudo minikube start --driver=none --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus 1 --image-repository=registry.cn-hangzhou.a liyuncs.com/google_containers
+
+
+
+
+
+kind
+sudo time kind create cluster --image kindest/node:v1.19.1 --name kind
+
+
+
+
+
+安裝Prometheus
+https://blog.csdn.net/weixin_44144334/article/details/103573888
+
+熱更新: curl -X POST http://88.8.145.100:9090/-/reload
+https://songjiayang.gitbooks.io/prometheus/content/qa/hotreload.html
+
+
+https://william-yeh.net/post/2020/08/blackbox-exporter/           ----------black exporter
+https://prometheus.io/download/#node_exporter                     ----------node exporter
+https://prometheus.io/docs/guides/multi-target-exporter/
+
+安裝blackbox_exporter-0.18.0.linux-amd64 
+執行 ./blackbox_exporter & 
+
+安裝prometheus-2.23.0.linux-amd64
+編輯yaml
+  - job_name: jenkins # To get metrics about the exporter’s targets
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - 88.8.145.71:8080/jenkins    # Target to probe with http
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
+執行peometheus
+./prometheus --web.enable-lifecycle & (&背景執行 web.enable可以熱更新)
+
+
+
+安裝grafana
+https://kknews.cc/zh-tw/code/mo8oay6.html
+
+yum localinstall grafana-7.3.6-1.x86_64.rpm
+
+systemctl start grafana-server-server
+
+下載black exporter json套件
+https://grafana.com/grafana/dashboards/7587
+下載node exporter json套件
+https://grafana.com/grafana/dashboards/8919
+
+告警安裝
+https://www.mdeditor.tw/pl/p5HB/zh-tw
+
+
+
+新建立一個規則檔案：alert_rules.yml
+https://iter01.com/515175.html
+
+下載alert manager安裝包
+https://prometheus.io/download/#alertmanager
+./alertmanager --config.file=./alertmanager.yml --cluster.advertise-address=0.0.0.0:9093 
+
+
+grafana+alertmanager: https://fuxkdb.com/2017/12/15/PMM%E4%BD%BF%E7%94%A8Grafana%E5%91%8A%E8%AD%A6/
+1. notification channels : type: prometheus alertmanager url:88.8.145.100:9093
+進入dashboard設定alert rules 
+2. query : avg(rate(node_cpu_seconds_total{instance=~"88.8.145.71:9100",mode="system"}[2m])) by (instance) *100
+3. alert : query (A, 5m, now) IS ABOVE
+
+
+
+安裝harbor
+1.安裝docker 
+
+2.安裝docker-compose    https://github.com/docker/compose/releases  
+mkdir $HOME/tmp
+export TMPDIR=$HOME/tmp
+docker-compose --version
+
+3.Docker daemon 沒run   解決辦法 https://blog.yowko.com/cannot-connect-docker-daemon/
+開啟 vi /etc/sysconfig/docker
+將 --selinux-enabled 改為 --selinux-enabled=false
+
+重啟 Docker service
+systemctl restart docker.service
+
+4./home/jenkinsadm/harbor/install.sh
+#h2 "[Step $item]: checking if docker is installed ..."; let item+=1
+#check_docker
+
+harbor.yml
+port:80
+hostname: DaRHALMGit
+certificate: /home/jenkinsadm/data/cert/ca.crt
+private_key: /home/jenkinsadm/data/cert/ca.key
+harbor_admin_password: admin
+
+
+建立https憑證: https://k2r2bai.com/2019/09/30/ironman2020/day15/
+建立data資料夾
+
+
+
+vi /etc/sysconfig/docker
+--selinux-enabled=false --insecure-registry=88.249.28.53:80
+
+推image進harbor
+https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-EC76B511-8DEB-4595-9DFA-3E9567C98ECA.html
+1.docker login : https://blog.csdn.net/jiankunking/article/details/71190814    /etc/docker/daemon.json 
+                 https://www.cnblogs.com/chuanzhang053/p/10930725.html
+{
+    "insecure-registries": [
+        "hub.docker.jiankunking.io:5000"
+    ]
+}
+2. docker tag hello-world:latest 88.249.28.53:80/alm_project/hello-world:latest
+3. docker push 88.249.28.53:80/alm_project/hello-world
+4. docker pull 88.249.28.53:80/alm_project/hello-world:latest
+5. docker rmi -f ImageID
+
+
+安裝kind
+https://finolo.gy/2019/12/%E9%80%9A%E8%BF%87kubeadm%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4v1-15/
+
+
