@@ -18,5 +18,5 @@ RUN sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 8080
 #CMD ["nginx", "-g", "daemon off;"]
