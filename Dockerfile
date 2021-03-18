@@ -9,7 +9,7 @@ RUN npm run build
 # production stage
 FROM nginx:stable-alpine as production-stage
 RUN chgrp -R 0 /etc/nginx/ /var/cache/nginx /var/run /var/log/nginx  && \ 
-  chmod -R g+rwX /etc/nginx/ /var/cache/nginx /var/run /var/log/nginx
+chmod -R g+rwX /etc/nginx/ /var/cache/nginx /var/run /var/log/nginx
 
 # users are not allowed to listen on priviliged ports
 RUN sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf
@@ -18,5 +18,6 @@ RUN sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 #CMD ["nginx", "-g", "daemon off;"]
