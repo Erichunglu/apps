@@ -1,0 +1,20 @@
+部署到指定的node上，首先需要加label到worknode上
+
+oc login -u admin -p redhat
+oc get nodes -L env
+oc label node worknode01 env=dev
+oc edit deployment/hello  加上
+                          dnsPolicy: ClusterFirst
+                          nodeSelector:
+                          env: dev
+                          restartPolicy:
+
+
+
+產出部署腳本，不會開啟pod
+
+oc create deployment hello-limit --image quay.io/redhattraining/hello-world-nginx:v1.0 --dry-run=client -o yaml > ~/DO280/labs/schedule-limit/hello-limit.yaml
+
+oc create --save-config -f ~/DO280/labs/schedule-limit/hello-limit.yaml
+
+oc get events --field-selector type=Warning
